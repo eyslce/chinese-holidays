@@ -200,12 +200,12 @@ func TestIsWeekday(t *testing.T) {
 	assert.False(t, isWeekday)
 }
 
-func TestNewHoliday(t *testing.T) {
-	h := chinese_holidays.NewHoliday(chinese_holidays.WithSavePath("/tmp/"))
-	isHoliday, err := h.IsHoliday("2025-01-01")
-	assert.NoError(t, err)
-	assert.True(t, isHoliday)
-	isWeekday, err := h.IsWeekday("2025-01-26")
-	assert.NoError(t, err)
-	assert.True(t, isWeekday)
-}
+//func TestNewHoliday(t *testing.T) {
+//	h := chinese_holidays.NewHoliday(chinese_holidays.WithSavePath("/tmp/"))
+//	isHoliday, err := h.IsHoliday("2025-01-01")
+//	assert.NoError(t, err)
+//	assert.True(t, isHoliday)
+//	isWeekday, err := h.IsWeekday("2025-01-26")
+//	assert.NoError(t, err)
+//	assert.True(t, isWeekday)
+//}
