@@ -61,7 +61,7 @@ _运行结果：_
 ```
 
 #### 更多用法请参考
-[holiday_test.go](chinese-holidays_test/holiday_test.go)
+[holiday_test.go](chinese_holidays_test/holiday_test.go)
 
 ### ⚠️ 注意事项
 - 目前只支持2025年以后的数据，之前的数据暂时无法获取。
