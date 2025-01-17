@@ -1,9 +1,9 @@
 package chinese_holidays_test
 
 import (
-	"chinese-holidays"
 	"testing"
 
+	chineseholidays "github.com/eyslce/chinese-holidays"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
@@ -20,8 +20,8 @@ func (m *MockHolidayData) loadHolidayDataByYear(savePath string, year int) (map[
 
 // 为 IsWeekend 编写测试用例
 func TestIsWeekend(t *testing.T) {
-	h := &chinese_holidays.Holiday{
-		Cfg: &chinese_holidays.Config{
+	h := &chineseholidays.Holiday{
+		Cfg: &chineseholidays.Config{
 			SavePath: "mock_path",
 		},
 	}
@@ -29,12 +29,12 @@ func TestIsWeekend(t *testing.T) {
 	// 创建 mock 对象
 	mockHolidayData := new(MockHolidayData)
 	// 替换 loadHolidayDataByYear 方法
-	chinese_holidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
+	chineseholidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
 
 	// 设置预期返回值
 	mockHolidayData.On("loadHolidayDataByYear", "mock_path", 2025).Return(map[string]int{
-		"2025-01-02": chinese_holidays.HolidayStatusNormal,
-		"2025-01-04": chinese_holidays.HolidayStatusWeekend,
+		"2025-01-02": chineseholidays.HolidayStatusNormal,
+		"2025-01-04": chineseholidays.HolidayStatusWeekend,
 	}, nil)
 
 	// 测试正常工作日
@@ -61,8 +61,8 @@ func TestIsWeekend(t *testing.T) {
 
 // 为 IsPublicHoliday 编写测试用例
 func TestIsPublicHoliday(t *testing.T) {
-	h := &chinese_holidays.Holiday{
-		Cfg: &chinese_holidays.Config{
+	h := &chineseholidays.Holiday{
+		Cfg: &chineseholidays.Config{
 			SavePath: "mock_path",
 		},
 	}
@@ -70,12 +70,12 @@ func TestIsPublicHoliday(t *testing.T) {
 	// 创建 mock 对象
 	mockHolidayData := new(MockHolidayData)
 	// 替换 loadHolidayDataByYear 方法
-	chinese_holidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
+	chineseholidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
 
 	// 设置预期返回值
 	mockHolidayData.On("loadHolidayDataByYear", "mock_path", 2025).Return(map[string]int{
-		"2025-01-01": chinese_holidays.HolidayStatusHoliday,
-		"2025-01-02": chinese_holidays.HolidayStatusNormal,
+		"2025-01-01": chineseholidays.HolidayStatusHoliday,
+		"2025-01-02": chineseholidays.HolidayStatusNormal,
 	}, nil)
 
 	// 测试法定假期
@@ -102,8 +102,8 @@ func TestIsPublicHoliday(t *testing.T) {
 
 // 为 IsHoliday 编写测试用例
 func TestIsHoliday(t *testing.T) {
-	h := &chinese_holidays.Holiday{
-		Cfg: &chinese_holidays.Config{
+	h := &chineseholidays.Holiday{
+		Cfg: &chineseholidays.Config{
 			SavePath: "mock_path",
 		},
 	}
@@ -111,13 +111,13 @@ func TestIsHoliday(t *testing.T) {
 	// 创建 mock 对象
 	mockHolidayData := new(MockHolidayData)
 	// 替换 loadHolidayDataByYear 方法
-	chinese_holidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
+	chineseholidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
 
 	// 设置预期返回值
 	mockHolidayData.On("loadHolidayDataByYear", "mock_path", 2025).Return(map[string]int{
-		"2025-01-01": chinese_holidays.HolidayStatusHoliday,
-		"2025-01-02": chinese_holidays.HolidayStatusNormal,
-		"2025-01-04": chinese_holidays.HolidayStatusWeekend,
+		"2025-01-01": chineseholidays.HolidayStatusHoliday,
+		"2025-01-02": chineseholidays.HolidayStatusNormal,
+		"2025-01-04": chineseholidays.HolidayStatusWeekend,
 	}, nil)
 
 	// 测试法定假期
@@ -149,8 +149,8 @@ func TestIsHoliday(t *testing.T) {
 
 // 为 IsWeekday 编写测试用例
 func TestIsWeekday(t *testing.T) {
-	h := &chinese_holidays.Holiday{
-		Cfg: &chinese_holidays.Config{
+	h := &chineseholidays.Holiday{
+		Cfg: &chineseholidays.Config{
 			SavePath: "mock_path",
 		},
 	}
@@ -158,14 +158,14 @@ func TestIsWeekday(t *testing.T) {
 	// 创建 mock 对象
 	mockHolidayData := new(MockHolidayData)
 	// 替换 loadHolidayDataByYear 方法
-	chinese_holidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
+	chineseholidays.LoadHolidayDataByYear = mockHolidayData.loadHolidayDataByYear
 
 	// 设置预期返回值
 	mockHolidayData.On("loadHolidayDataByYear", "mock_path", 2025).Return(map[string]int{
-		"2025-01-01": chinese_holidays.HolidayStatusHoliday,
-		"2025-01-02": chinese_holidays.HolidayStatusNormal,
-		"2025-01-26": chinese_holidays.HolidayStatusWorkday,
-		"2025-01-04": chinese_holidays.HolidayStatusWeekend,
+		"2025-01-01": chineseholidays.HolidayStatusHoliday,
+		"2025-01-02": chineseholidays.HolidayStatusNormal,
+		"2025-01-26": chineseholidays.HolidayStatusWorkday,
+		"2025-01-04": chineseholidays.HolidayStatusWeekend,
 	}, nil)
 
 	// 测试法定假期

@@ -1,4 +1,4 @@
-module chinese-holidays
+module github.com/eyslce/chinese-holidays
 
 go 1.22.2
 
